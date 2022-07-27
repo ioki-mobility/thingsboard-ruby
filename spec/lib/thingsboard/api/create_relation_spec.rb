@@ -82,13 +82,8 @@ RSpec.describe Thingsboard::Api::CreateRelation do
     subject
   end
 
-  it 'doesn\'t track an error with Prometheus' do
-    expect(PrometheusMetrics).not_to receive(:observe).with(
-      :third_party_errors_total,
-      1,
-      hash_including(provider: 'thingsboard')
-    )
-
+  it 'doesn\'t track an error with configured tracker' do
+    expect(error_tracker).not_to receive(:call)
     subject
   end
 
