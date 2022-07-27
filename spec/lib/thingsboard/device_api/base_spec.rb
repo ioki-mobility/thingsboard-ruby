@@ -1,9 +1,8 @@
 # frozen_string_literal: true
 
-
-
 RSpec.describe Thingsboard::DeviceApi::Base do
   subject { described_class.call(operation_params) }
+
   let(:operation_params) do
     {
       foo: foo

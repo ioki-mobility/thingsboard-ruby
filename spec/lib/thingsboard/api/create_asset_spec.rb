@@ -1,9 +1,8 @@
 # frozen_string_literal: true
 
-
-
 RSpec.describe Thingsboard::Api::CreateAsset do
   subject { described_class.call(operation_params) }
+
   let(:operation_params) do
     {
       token: token,
@@ -11,6 +10,30 @@ RSpec.describe Thingsboard::Api::CreateAsset do
       type:  type,
       label: label
     }
+  end
+  let(:response_status) { 200 }
+  let(:response_body) do
+    <<-JSON
+      {
+        "id": {
+            "entityType": "ASSET",
+            "id": "332090a0-0737-11eb-b3f7-4dbfb57ed205"
+        },
+        "createdTime": 1601921922730,
+        "additionalInfo": null,
+        "tenantId": {
+            "entityType": "TENANT",
+            "id": "8e71f160-db9a-11ea-95d6-fd59fd7ffce1"
+        },
+        "customerId": {
+            "entityType": "CUSTOMER",
+            "id": "13814000-1dd2-11b2-8080-808080808080"
+        },
+        "name": "Backend Office space",
+        "type": "office",
+        "label": "placed in ioki-prime"
+      }
+    JSON
   end
 
   let(:token) { '***TOKEN***' }
@@ -56,31 +79,6 @@ RSpec.describe Thingsboard::Api::CreateAsset do
       )
       .with { |request| JSON.parse(request.body) == request_body }
       .to_return(status: response_status, body: response_body)
-  end
-
-  let(:response_status) { 200 }
-  let(:response_body) do
-    <<-JSON
-      {
-        "id": {
-            "entityType": "ASSET",
-            "id": "332090a0-0737-11eb-b3f7-4dbfb57ed205"
-        },
-        "createdTime": 1601921922730,
-        "additionalInfo": null,
-        "tenantId": {
-            "entityType": "TENANT",
-            "id": "8e71f160-db9a-11ea-95d6-fd59fd7ffce1"
-        },
-        "customerId": {
-            "entityType": "CUSTOMER",
-            "id": "13814000-1dd2-11b2-8080-808080808080"
-        },
-        "name": "Backend Office space",
-        "type": "office",
-        "label": "placed in ioki-prime"
-      }
-    JSON
   end
 
   it 'is expected to succeed' do

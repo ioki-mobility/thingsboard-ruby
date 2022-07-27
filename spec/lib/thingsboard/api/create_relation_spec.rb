@@ -1,9 +1,8 @@
 # frozen_string_literal: true
 
-
-
 RSpec.describe Thingsboard::Api::CreateRelation do
   subject { described_class.call(operation_params) }
+
   let(:operation_params) do
     {
       token:            token,
@@ -14,6 +13,8 @@ RSpec.describe Thingsboard::Api::CreateRelation do
       relation_type:    relation_type
     }
   end
+  let(:response_status) { 200 }
+  let(:response_body) { nil }
 
   let(:token) { '***TOKEN***' }
 
@@ -67,9 +68,6 @@ RSpec.describe Thingsboard::Api::CreateRelation do
       .with { |request| JSON.parse(request.body) == request_body }
       .to_return(status: response_status, body: response_body)
   end
-
-  let(:response_status) { 200 }
-  let(:response_body) { nil }
 
   it 'is expected to succeed' do
     expect { subject }.not_to raise_error

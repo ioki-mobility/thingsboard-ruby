@@ -2,12 +2,15 @@
 
 RSpec.describe Thingsboard::DeviceApi::CreateTelemetries do
   subject { described_class.call(operation_params) }
+
   let(:operation_params) do
     {
       device_access_token: device_access_token,
       telemetry_data:      telemetry_data
     }
   end
+  let(:response_status) { 201 }
+  let(:response_body) { {}.to_json }
 
   let(:recorded_at) { '2020-01-01 12:00:00 +0000'.to_datetime }
   let(:recorded_at_ts) { (recorded_at.to_f * 1000).to_i }
@@ -62,9 +65,6 @@ RSpec.describe Thingsboard::DeviceApi::CreateTelemetries do
       .with { |request| JSON.parse(request.body) == JSON.parse(request_body) }
       .to_return(status: response_status, body: response_body)
   end
-
-  let(:response_status) { 201 }
-  let(:response_body) { {}.to_json }
 
   it 'is expected to succeed' do
     expect { subject }.not_to raise_error
