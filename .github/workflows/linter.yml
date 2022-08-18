@@ -32,4 +32,4 @@ jobs:
           reporter: github-pr-check
           filter_mode: added
           fail_on_error: true
-          brakeman_flags: '--no-exit-on-warn --no-exit-on-error --force lib/'
+          brakeman_flags: '--no-exit-on-warn --no-exit-on-error --force .'
