@@ -1,0 +1,35 @@
+name: reviewdog
+on: [pull_request]
+
+env:
+  REVIEWDOG_SKIP_DOGHOUSE: true
+
+jobs:
+  ruby_linting:
+    name: runner / ruby_linting
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v2
+      - uses: ruby/setup-ruby@v1
+        with:
+          bundler-cache: true
+      - name: rubocop
+        uses: reviewdog/action-rubocop@v2
+        with:
+          rubocop_version: gemfile
+          rubocop_extensions: rubocop-rspec:gemfile
+          github_token: ${{ secrets.github_token }}
+          reporter: github-pr-check
+          filter_mode: added
+          fail_on_error: false
+      - name: brakeman
+        uses: reviewdog/action-brakeman@v2
+        with:
+          github_token: ${{ secrets.github_token }}
+          reporter: github-pr-check
+          filter_mode: added
+          fail_on_error: true
+          brakeman_flags: '--no-exit-on-warn --no-exit-on-error lib/'
