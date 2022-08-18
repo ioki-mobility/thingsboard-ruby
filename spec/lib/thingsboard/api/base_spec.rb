@@ -19,7 +19,11 @@ RSpec.describe Thingsboard::Api::Base do
 
   let(:request_tracker) do
     proc do |api_endpoint|
-      api_endpoint
+      PrometheusMetrics.observe(
+        'force_spec_and_rubocop_fail',
+        meta_a: 1,
+        meta_b:   2
+      )
     end
   end
 
