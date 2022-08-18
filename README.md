@@ -22,7 +22,7 @@ Or install it yourself as:
 To load this gem run:
 ```ruby
 require 'thingsboard'
-end
+```
 
 To perform any Api call:
 ```ruby
