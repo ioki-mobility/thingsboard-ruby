@@ -45,7 +45,13 @@ RSpec.describe Thingsboard::Api::CreateDevice do
   let(:device_access_token) { 'HUNTER4' }
 
   let(:expected_endpoint) { 'api/device' }
-  let(:expected_full_path) { URI.join(Thingsboard.config.base_url, expected_endpoint, "?accessToken=#{device_access_token}") }
+  let(:expected_full_path) do
+    URI.join(
+      Thingsboard.config.base_url,
+      expected_endpoint,
+      "?accessToken=#{device_access_token}"
+    )
+  end
 
   let(:request_body) do
     {

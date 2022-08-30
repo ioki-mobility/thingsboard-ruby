@@ -2,6 +2,6 @@
 
 RSpec.describe Thingsboard do
   it 'has a version number' do
-    expect(Thingsboard::VERSION).not_to be nil
+    expect(Thingsboard::VERSION).not_to be_nil
   end
 end
