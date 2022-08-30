@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    thingsboard-ruby (0.1.0)
+    thingsboard-ruby (0.1.1)
       activesupport (~> 6.1)
       faraday (~> 1.10)
 
