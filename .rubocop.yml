@@ -4,7 +4,6 @@ AllCops:
 inherit_from:
   - https://dbdrive.github.io/triebwerk/rubocop_common.yml
 
-
 RSpec/NestedGroups:
   Exclude:
     - 'spec/lib/thingsboard/api/base_spec.rb'
