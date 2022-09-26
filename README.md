@@ -1,6 +1,13 @@
 # thingsboard-ruby [![CI Status](https://github.com/ioki-mobility/thingsboard-ruby/actions/workflows/main.yml/badge.svg)](https://github.com/ioki-mobility/thingsboard-ruby/actions/workflows/main.yml)
 
-This library helps to integrate the Thingsboard's web-apis (`api` and `device-api`).
+This library helps to integrate the Thingsboard's API's with following feature-primitives:
+* [Administration REST API](https://thingsboard.io/docs/reference/rest-api/)
+    * [Login](https://demo.thingsboard.io/swagger-ui/#/login-endpoint/loginPost)
+    * [create Asset](https://demo.thingsboard.io/swagger-ui/#/asset-controller/saveAssetUsingPOST)
+    * [create Device](https://demo.thingsboard.io/swagger-ui/#/device-controller/saveDeviceUsingPOST)
+    * [create Relation](https://demo.thingsboard.io/swagger-ui/#/entity-relation-controller/saveRelationUsingPOST)
+* [HTTP Device API](https://thingsboard.io/docs/reference/http-api/)
+    * [create Telemetries](https://thingsboard.io/docs/reference/http-api/)
 
 ## Installation
 
