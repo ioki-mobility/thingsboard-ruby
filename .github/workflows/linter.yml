@@ -21,6 +21,7 @@ jobs:
         with:
           rubocop_version: gemfile
           rubocop_extensions: rubocop-rspec:gemfile
+          rubocop_flags: --ignore-unrecognized-cops
           github_token: ${{ secrets.github_token }}
           reporter: github-pr-check
           filter_mode: added
