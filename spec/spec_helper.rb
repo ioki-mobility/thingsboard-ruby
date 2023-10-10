@@ -7,6 +7,8 @@ require 'active_support/core_ext/string'
 require 'active_support/core_ext/hash/indifferent_access'
 require 'active_support/core_ext/securerandom'
 require 'active_support/core_ext/time/zones'
+require 'active_support/version'
+require 'active_support/isolated_execution_state' if ActiveSupport::VERSION::MAJOR > 6
 require 'webmock/rspec'
 
 Dir['./spec/support/**/*.rb'].sort.each { |f| require f }
