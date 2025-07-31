@@ -15,7 +15,7 @@ Gem::Specification.new do |spec|
   spec.homepage      = 'https://github.com/ioki-mobility/thingsboard-ruby'
   spec.license       = 'MIT'
 
-  spec.required_ruby_version = '>= 2.7.5'
+  spec.required_ruby_version = '>= 3.4'
 
   # Prevent pushing this gem to RubyGems.org. To allow pushes either set the 'allowed_push_host'
   # to allow pushing to a single host or delete this section to allow pushing to any host.
@@ -39,7 +39,7 @@ Gem::Specification.new do |spec|
   spec.executables   = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
   spec.require_paths = ['lib']
 
-  spec.add_dependency 'activesupport', '>= 6.1', '< 8.0'
+  spec.add_dependency 'activesupport', '>= 7.1', '< 9.0'
   spec.add_dependency 'faraday', '~> 2.7'
 
   spec.metadata['rubygems_mfa_required'] = 'true'
