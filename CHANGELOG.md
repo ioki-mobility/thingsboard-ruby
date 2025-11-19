@@ -4,7 +4,6 @@
 
 - Update to Ruby 3.4
 
-
 ## [0.1.1] - 2022-08-01
 
 - Added links to original Thingsboard API docs in README.md
