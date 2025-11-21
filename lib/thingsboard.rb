@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require_relative 'thingsboard/version'
+require 'active_support'
 require 'active_support/configurable'
 
 module Thingsboard
