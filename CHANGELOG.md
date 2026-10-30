@@ -1,5 +1,9 @@
 ## [Unreleased]
 
+## [0.1.3] - 2026-10-30
+
+- Replace `ActiveSupport::Configurable` (removed in ActiveSupport 8.2) with `ActiveSupport::OrderedOptions`
+
 ## [0.1.2] - 2023-08-01
 
 - Update to Ruby 3.4

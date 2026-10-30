@@ -2,10 +2,16 @@
 
 require_relative 'thingsboard/version'
 require 'active_support'
-require 'active_support/configurable'
+require 'active_support/ordered_options'
+# Previously loaded indirectly via ActiveSupport::Configurable (removed in ActiveSupport 8.2).
+# Needed by DeviceApi::Error, and kept for consumers that relied on it.
+require 'active_support/core_ext/object/try'
 
 module Thingsboard
-  include ActiveSupport::Configurable
+  def self.config
+    @config ||= ActiveSupport::OrderedOptions.new
+  end
+
   Thingsboard.config.base_url ||= 'https://example.com/thingsboard'
   Thingsboard.config.request_tracker ||= proc { |_api_endpoint| }
   Thingsboard.config.error_tracker   ||= proc { |_api_endpoint, _response_code| }
